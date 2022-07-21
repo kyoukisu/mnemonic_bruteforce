@@ -7,7 +7,7 @@ screen -S work
 
 apt install golang-go -y
 
-mkdir /root/go/src/mnemonic_bruteforce
+mkdir -p /root/go/src/mnemonic_bruteforce
 cp ./main.go /root/go/src/mnemonic_bruteforce/main.go
 cd /root/go/src/mnemonic_bruteforce
 
@@ -40,7 +40,6 @@ do
    sport=$(($base_port+($c-1)*2))
    cport=$(($base_port+($c-1)*2+1))
    echo -e "SocksPort $sport\nControlPort $cport\nDataDirectory /var/lib/tor$c" >> ./torrc.$c
-   chmod +x ./torrc.$c
 done
 
 pkill tor
